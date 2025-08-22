@@ -20,13 +20,12 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(title: Text("")),c:\Users\PC 15\Pictures\langitbiru.jpg
       body: Stack(
         children: [
           buildBackground(),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(25.0),
               child: ListView(
                 children: [
                   Center(
@@ -34,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "simpanan ibu ibu ",
+                          "Login",
                           style: TextStyle(
                             fontSize: 24,
                             color: Colors.white,
@@ -42,10 +41,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         height(12),
-                        Text(
-                          "simpanan nya para ibu ibu konglomerat",
-                          style: TextStyle(fontSize: 14, color: Colors.white),
-                        ),
                         height(24),
                         buildTitle("Email Address"),
                         height(12),
@@ -76,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               "Forgot Password?",
                               style: TextStyle(
                                 fontSize: 12,
-                                // color: AppColor.orange,
+                                color: Colors.white,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -91,9 +86,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               login();
                             },
                             style: ElevatedButton.styleFrom(
-                              // backgroundColor: AppColor.blueButton,
+                              backgroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(6),
+                                borderRadius: BorderRadius.circular(50),
                               ),
                             ),
                             child: Text(
@@ -101,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white,
+                                color: Colors.blueGrey,
                               ),
                             ),
                           ),
@@ -119,7 +114,10 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             Text(
                               "Or Sign In With",
-                              // style: TextStyle(fontSize: 12, color: AppColor.gray88),
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.white,
+                              ),
                             ),
                             Expanded(
                               child: Container(
@@ -162,7 +160,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             Text(
                               "Don't have an account?",
-                              // style: TextStyle(fontSize: 12, color: AppColor.gray88),
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.white,
+                              ),
                             ),
                             TextButton(
                               onPressed: () {
@@ -175,7 +176,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               child: Text(
                                 "Sign Up",
                                 style: TextStyle(
-                                  // color: AppColor.blueButton,
+                                  color: Colors.orange,
                                   fontSize: 12,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -223,7 +224,7 @@ class _LoginScreenState extends State<LoginScreen> {
       width: double.infinity,
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/images/biru.jpg"),
+          image: AssetImage("assets/images/bg.jpg"),
           fit: BoxFit.cover,
         ),
       ),
@@ -239,22 +240,24 @@ class _LoginScreenState extends State<LoginScreen> {
       controller: controller,
       obscureText: isPassword ? isVisibility : false,
       decoration: InputDecoration(
+        fillColor: Colors.white,
         hintText: hintText,
+        hintStyle: TextStyle(color: Colors.white),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(32),
           borderSide: BorderSide(
-            color: Colors.black.withOpacity(0.2),
+            color: Colors.white.withOpacity(1),
             width: 1.0,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(32),
-          borderSide: BorderSide(color: Colors.black, width: 1.0),
+          borderSide: BorderSide(color: Colors.white, width: 1.0),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(32),
           borderSide: BorderSide(
-            color: Colors.black.withOpacity(0.2),
+            color: Colors.white.withOpacity(1),
             width: 1.0,
           ),
         ),
@@ -267,7 +270,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 },
                 icon: Icon(
                   isVisibility ? Icons.visibility_off : Icons.visibility,
-                  // color: AppColor.gray88,
+                  color: Colors.white,
                 ),
               )
             : null,
@@ -281,7 +284,14 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget buildTitle(String text) {
     return Row(
       children: [
-        // Text(text, style: TextStyle(fontSize: 12, color: AppColor.gray88)),
+        Text(
+          text,
+          style: TextStyle(
+            fontSize: 12,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ],
     );
   }

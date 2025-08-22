@@ -24,7 +24,7 @@ class LogOutButton extends StatelessWidget {
             ),
             child: Center(
               child: Image.asset(
-                "assets/images/masakyuk.png", // ganti dengan path gambar kamu
+                "assets/images/masakyuk.png",
                 fit: BoxFit.contain,
               ),
             ),
