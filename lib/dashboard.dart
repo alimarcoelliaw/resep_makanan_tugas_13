@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:resep_makanan/extension/navigation.dart';
 import 'package:resep_makanan/screens/add_recipe.dart';
-import 'package:resep_makanan/screens/edit_recipe.dart';
 import 'package:resep_makanan/screens/recipe_list.dart';
 
 class Dashboardscreen extends StatefulWidget {
@@ -16,47 +15,6 @@ class _DashboardscreenState extends State<Dashboardscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Dashboard',
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        centerTitle: true,
-      ),
-      drawer: Drawer(
-        backgroundColor: Colors.blueAccent,
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            DrawerHeader(
-              decoration: const BoxDecoration(color: Colors.white),
-              child: const Text(
-                'Menu',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            ListTile(
-              title: Text(
-                "Profile",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const EditRecipeScreen(),
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

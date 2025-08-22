@@ -75,7 +75,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               "Forgot Password?",
                               style: TextStyle(
                                 fontSize: 12,
-                                color: Colors.orange,
+                                // color: AppColor.orange,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -92,7 +92,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.blue,
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50),
+                                borderRadius: BorderRadius.circular(6),
                               ),
                             ),
                             child: isLoading
