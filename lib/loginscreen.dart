@@ -16,9 +16,183 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool isVisibility = false;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Stack(children: [buildBackground(), buildLayer()]));
+    return Scaffold(
+      // appBar: AppBar(title: Text("")),c:\Users\PC 15\Pictures\langitbiru.jpg
+      body: Stack(
+        children: [
+          buildBackground(),
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ListView(
+                children: [
+                  Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "simpanan ibu ibu ",
+                          style: TextStyle(
+                            fontSize: 24,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        height(12),
+                        Text(
+                          "simpanan nya para ibu ibu konglomerat",
+                          style: TextStyle(fontSize: 14, color: Colors.white),
+                        ),
+                        height(24),
+                        buildTitle("Email Address"),
+                        height(12),
+                        buildTextField(
+                          hintText: "Enter your email",
+                          controller: emailController,
+                        ),
+
+                        height(16),
+                        buildTitle("Password"),
+                        height(12),
+                        buildTextField(
+                          hintText: "Enter your password",
+                          isPassword: true,
+                          controller: passwordController,
+                        ),
+                        height(12),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: TextButton(
+                            onPressed: () {
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(builder: (context) => MeetSebelas()),
+                              // );
+                            },
+                            child: Text(
+                              "Forgot Password?",
+                              style: TextStyle(
+                                fontSize: 12,
+                                // color: AppColor.orange,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ),
+                        height(24),
+                        SizedBox(
+                          width: double.infinity,
+                          height: 56,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              login();
+                            },
+                            style: ElevatedButton.styleFrom(
+                              // backgroundColor: AppColor.blueButton,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(6),
+                              ),
+                            ),
+                            child: Text(
+                              "Login",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                        height(16),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: Container(
+                                margin: EdgeInsets.only(right: 8),
+                                height: 1,
+                                color: Colors.white,
+                              ),
+                            ),
+                            Text(
+                              "Or Sign In With",
+                              // style: TextStyle(fontSize: 12, color: AppColor.gray88),
+                            ),
+                            Expanded(
+                              child: Container(
+                                margin: EdgeInsets.only(left: 8),
+                                height: 1,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        height(16),
+                        SizedBox(
+                          height: 48,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                            ),
+                            onPressed: () {
+                              // Navigate to MeetLima screen menggunakan pushnamed
+                              Navigator.pushNamed(context, "/meet_2");
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  "assets/images/icon_google.png",
+                                  height: 16,
+                                  width: 16,
+                                ),
+                                width(4),
+                                Text("Google"),
+                              ],
+                            ),
+                          ),
+                        ),
+                        height(16),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Don't have an account?",
+                              // style: TextStyle(fontSize: 12, color: AppColor.gray88),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                context.push(RegisterScreen());
+                                // Navigator.pushReplacement(
+                                //   context,
+                                //   MaterialPageRoute(builder: (context) => MeetEmpatA()),
+                                // );
+                              },
+                              child: Text(
+                                "Sign Up",
+                                style: TextStyle(
+                                  // color: AppColor.blueButton,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   login() async {
@@ -43,176 +217,13 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-  SafeArea buildLayer() {
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            // crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                "Welcome Back",
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
-              height(12),
-              Text(
-                "Login to access your account",
-                // style: TextStyle(fontSize: 14, color: AppColor.gray88),
-              ),
-              height(24),
-              buildTitle("Email Address"),
-              height(12),
-              buildTextField(
-                hintText: "Enter your email",
-                controller: emailController,
-              ),
-
-              height(16),
-              buildTitle("Password"),
-              height(12),
-              buildTextField(
-                hintText: "Enter your password",
-                isPassword: true,
-                controller: passwordController,
-              ),
-              height(12),
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => MeetSebelas()),
-                    // );
-                  },
-                  child: Text(
-                    "Forgot Password?",
-                    style: TextStyle(
-                      fontSize: 12,
-                      // color: AppColor.orange,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ),
-              height(24),
-              SizedBox(
-                width: double.infinity,
-                height: 56,
-                child: ElevatedButton(
-                  onPressed: () {
-                    login();
-                  },
-                  style: ElevatedButton.styleFrom(
-                    // backgroundColor: AppColor.blueButton,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                  ),
-                  child: Text(
-                    "Login",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-              height(16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.only(right: 8),
-                      height: 1,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Text(
-                    "Or Sign In With",
-                    // style: TextStyle(fontSize: 12, color: AppColor.gray88),
-                  ),
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.only(left: 8),
-
-                      height: 1,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-
-              height(16),
-              SizedBox(
-                height: 48,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                  ),
-                  onPressed: () {
-                    // Navigate to MeetLima screen menggunakan pushnamed
-                    Navigator.pushNamed(context, "/meet_2");
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        "assets/images/icon_google.png",
-                        height: 16,
-                        width: 16,
-                      ),
-                      width(4),
-                      Text("Google"),
-                    ],
-                  ),
-                ),
-              ),
-              height(16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Don't have an account?",
-                    // style: TextStyle(fontSize: 12, color: AppColor.gray88),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      context.push(RegisterScreen());
-                      // Navigator.pushReplacement(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => MeetEmpatA()),
-                      // );
-                    },
-                    child: Text(
-                      "Sign Up",
-                      style: TextStyle(
-                        // color: AppColor.blueButton,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
   Container buildBackground() {
     return Container(
       height: double.infinity,
       width: double.infinity,
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/images/background.png"),
+          image: AssetImage("assets/images/biru.jpg"),
           fit: BoxFit.cover,
         ),
       ),

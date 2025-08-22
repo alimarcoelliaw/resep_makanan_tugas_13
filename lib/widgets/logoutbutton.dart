@@ -8,12 +8,36 @@ class LogOutButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        PreferenceHandler.removeLogin();
-        context.pushReplacementNamed(LoginScreen.id);
-      },
-      child: Text("Keluar"),
+    return Scaffold(
+      appBar: AppBar(title: const Text("simpan yuk")),
+      body: Column(
+        children: [
+          Container(
+            margin: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(16),
+            height: 500,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 60, 82, 207),
+              border: Border.all(color: Colors.red, width: 10),
+              borderRadius: BorderRadius.circular(24),
+            ),
+            child: Center(
+              child: Image.asset(
+                "assets/images/masakyuk.png", // ganti dengan path gambar kamu
+                fit: BoxFit.contain,
+              ),
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              PreferenceHandler.removeLogin();
+              context.pushReplacementNamed(LoginScreen.id);
+            },
+            child: const Text("Keluar"),
+          ),
+        ],
+      ),
     );
   }
 }
